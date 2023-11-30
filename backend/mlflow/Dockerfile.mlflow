@@ -1,0 +1,19 @@
+# Use an official MLFlow runtime as a parent image
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY ./app .
+
+# Set the default artifact repository URI
+ENV HUGGINGFACE_MODEL_CACHE=/app/model_weights
+
+# Expose port for querying LLM
+EXPOSE 5678
+
+# Set the PYTHONPATH environment variable to include local source code
+ENV PYTHONPATH=/app:$PYTHONPATH
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt

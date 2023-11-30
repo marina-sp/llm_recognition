@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  detection:
+    build:
+      context: detection
+      dockerfile: Dockerfile.detection
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - default
+    command: "uvicorn main:app --host 0.0.0.0 --port 8000"
+    depends_on: [mlflow]
+
+  mlflow:
+    build:
+      context: mlflow
+      dockerfile: Dockerfile.mlflow
+    working_dir: /app
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./mlflow/cache:/app/model_weights
+    networks:
+      - default
+    command:  [
+      "bash", "-c",
+      "python load_model_weights.py /app/model_weights && uvicorn main:app --host 0.0.0.0 --port 5678"]
+
+networks:
+  default:

@@ -1,0 +1,5 @@
+transformers
+mlflow
+torch
+uvicorn
+fastapi

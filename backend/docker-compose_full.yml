@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  detection:
+
+    build:
+      context: detection
+      dockerfile: Dockerfile.detection
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - default
+    command: "uvicorn main:app --host 0.0.0.0 --port 8000"
+    depends_on: [mlflow]
+
+  mlflow:
+    build:
+      context: mlflow
+      dockerfile: Dockerfile.mlflow
+    working_dir: /app
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./mlflow/hf_cache:/app/model_weights
+    networks:
+      - default
+    command:  "uvicorn main:app --host 0.0.0.0 --port 5678"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus
+    networks:
+      - default
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    depends_on:
+      - prometheus
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - default
+
+networks:
+  default:

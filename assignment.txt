@@ -1,0 +1,60 @@
+Question 0: Authenticity of Test Text
+Hey there! Let's kick things off by seeing how you'd figure out if this test's text is written by a person or an AI. What tools, libraries, or methods would you use to crack this?
+
+def is_test_human_generated(test_text: str) -> bool:
+    # Your code here
+    pass
+
+Question 1: Distinguishing AI-Generated Text from Natural Text
+We're curious about your approach to determining if a text is AI-generated, especially for a Text-to-SQL task using the WikiSQL dataset. Can you write a Python function to do this? Also, how would you fit this into a larger process using LMs from Hugging Face's Model Hub?
+
+def is_ai_generated(text: str) -> bool:
+    # Your code here
+    pass
+
+Question 2: Dockerized AI-Generated Text Detection Service
+Here's a cool one: can you create a service that uses your is_ai_generated function, but as a dockerized container ready for the cloud? It should have a simple REST API to return the results. If you've got the time, think about how you'd:
+* Scale this service in a cluster
+* Sanitize the input and output
+* Test the service thoroughly
+Also, could you add a feedback endpoint? It'd be super helpful for gathering calibration data based on the model's accuracy.
+
+def create_ai_gen_detection_service():
+    # Your code here
+    pass
+
+Question 3: Handling Ambiguity in Text-to-SQL
+Text-to-SQL can get tricky with ambiguous text. How about writing a Python function to sort this out, ensuring we get accurate SQL queries from the WikiSQL dataset? Plus, it'd be great if you could talk about integrating this into a larger Text-to-SQL process.
+
+def preprocess_text(text: str) -> str:
+    # Your code here
+    pass
+
+Question 4: Improving LM Performance Over Time
+Here's a challenge for you: outline a Python strategy to boost an LM's performance in Text-to-SQL tasks over time, using the WikiSQL dataset. Think monitoring, feedback loops, training... the whole nine yards. Also, how will you measure success and manage LM versions from Hugging Face's Model Hub?
+
+def improve_lm_performance(model: str, dataset: str) -> None:
+    # Your code here
+    pass
+
+Additional Instructions and Evaluation Criteria
+If you can't tackle every part of this, no worries! Just focus on what you can and explain your approach. We're more interested in how you think and prioritize.
+
+Additional Info / Restrictions:
+- Need more info? Feel free to drop us an email.
+- Choose any programming language you're comfortable with.
+
+Submission Requirements:
+- Give us a rundown of your implementation architecture.
+- Throw in a sequence diagram to show how everything interacts.
+- Walk us through how to build, deploy, and access your app.
+- Ready to chat about your design and implementation choices? We are!
+
+Evaluation Criteria:
+- Code Quality: We're looking for style, simplicity, and smarts.
+- Application Architecture: Show us your skills with design patterns and keeping things tidy.
+- API Design Quality: Stick to the standards and best practices.
+- Documentation Quality: Clear, complete, and accurate - that's the goal.
+- Deployment Automation: The less manual work, the better.
+
+Oh, and we expect this to take around 8 hours of your time. Can't wait to see what you come up with, and we're here if you have any questions. Good luck!

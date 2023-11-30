@@ -22,6 +22,6 @@ class Feedback(BaseModel):
 
 @app.post("/feedback")
 async def save_feedback(payload: Feedback):
-    logger.log(f"{payload.text}, {payload.is_correct}, {payload.prediction}")
+    logger.info(f"{payload.text}, {payload.is_correct}, {payload.prediction}")
 
 

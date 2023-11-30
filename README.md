@@ -36,7 +36,7 @@ Open AI, the creators of ChatGPT, admitted [\[1\]](https://openai.com/blog/new-a
 2. Start Docker containers (setup requires some time for downloading required libraries, etc):
 
     ```bash
-   docker-compose -f backend/docker-compose.yml -p backend up  
+   docker compose -f backend/docker-compose_full.yml -p backend up  
    
 3. Run sample queries directly with CURL (CPU runtime might be longer):
 

@@ -1,9 +1,12 @@
+Disclaimer:
+In this solution, I have been focusing on outlining the functionality of the service and its potential architecture, and not on providing good predictions. 
+
 Structure:
 
 - HuggingFace model 
   - todo: model selection argumentation.
-  For more advanced model is used here, the higher the chance that an output from a higher-quality model will be recognized. For simplicity's sake, the sample input texts are generated with a [model] and jugded with the same // or a more advanced [one].
-  - 
+  The more advanced model is used here, the higher the chance that an output from a higher-quality model will be recognized. For simplicity's sake, the sample input texts are generated with a [model] and jugded with the same // or a more advanced [one].
+  For the sake of my laptop, I chose a very small generative model 'DistilGPT2'.
 - MLFlow for model versioning
 - Prometheus metrics integration for performance monitoring
 - Grafana dashboards for visualizing metrics 
@@ -88,7 +91,7 @@ def preprocess_text(text: str) -> str:
     pass
 
 #### Question 4: Improving LM Performance Over Time
-Here's a challenge for you: outline a Python strategy to boost an LM's performance in Text-to-SQL tasks over time, using the WikiSQL dataset. Think monitoring, feedback loops, training... the whole nine yards. Also, how will you measure success and manage LM versions from Hugging Face's Model Hub?
+_Here's a challenge for you: outline a Python strategy to boost an LM's performance in Text-to-SQL tasks over time, using the WikiSQL dataset. Think monitoring, feedback loops, training... the whole nine yards. Also, how will you measure success and manage LM versions from Hugging Face's Model Hub?_
 
 From the feedback we have gathered in Question 2, we could build a custom "error" dataset to finetune the default model. 
 The instances would be formatted in the same way as the prompt, to encourage the model to learn the expected custom format, 

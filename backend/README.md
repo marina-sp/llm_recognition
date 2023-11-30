@@ -44,7 +44,7 @@ The solution to this question is contained in the [`./backend/models/detect.py`]
 #### Question 2: Dockerized AI-Generated Text Detection Service
 _Here's a cool one: can you create a service that uses your is_ai_generated function, but as a dockerized container ready for the cloud? It should have a simple REST API to return the results. If you've got the time, think about how you'd:_
 
-![Overview](topology-volumes.png)
+![Overview](topology.png)
 _generated with this [repo](https://github.com/pmsipilot/docker-compose-viz)_
 
 _* Scale this service in a cluster_ 
